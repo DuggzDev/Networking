@@ -13,10 +13,6 @@ public class Client {
         printWriter.println("Hello");
         printWriter.flush();
     }
-    //Open up a terminal
-    //Make sure the server is running
-    //Find client class
-    //Run class (java Client.java)
 
 
 }
