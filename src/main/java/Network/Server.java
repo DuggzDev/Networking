@@ -19,6 +19,8 @@ public class Server {
 
         String str = bufferedReader.readLine();
         System.out.println("client: " + str);
+        serverSocket.close();
+        socket.close();
 
     }
 }
