@@ -6,6 +6,7 @@ pipeline{
             steps{
                 echo 'Deploying...'
                 }
+       }
         stage("Test"){
             steps{
                 echo 'Testing...'
