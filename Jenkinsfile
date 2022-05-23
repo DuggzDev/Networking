@@ -17,7 +17,7 @@ pipeline{
                 echo "Finalizing..."
                 }
        }
-
+       stage("Dockerfile"){
        dockerfile {
                filename 'Dockerfile.build'
                dir 'build'
@@ -25,6 +25,7 @@ pipeline{
                registryUrl 'https://myregistry.com/'
                registryCredentialsId 'myPredefinedCredentialsInJenkins'
        }
+      }
 
 }
 }
