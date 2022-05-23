@@ -11,6 +11,12 @@ pipeline{
             steps{
                 echo 'Testing...'
                  }
+       }
+       stage("Finalizing"){
+            steps{
+                echo "Finalizing..."
+                }
+       }
 }
 }
 }
