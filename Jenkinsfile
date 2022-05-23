@@ -18,12 +18,14 @@ pipeline{
                 }
        }
        stage("Dockerfile"){
+       steps{
        dockerfile {
                filename 'Dockerfile.build'
                dir 'build'
                label 'my-defined-label'
                registryUrl 'https://myregistry.com/'
                registryCredentialsId 'myPredefinedCredentialsInJenkins'
+               }
        }
       }
 
