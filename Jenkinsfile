@@ -1,6 +1,7 @@
 pipeline {
   agent any
-
+  parameters{
+  string(name: 'Statement', defaultValue: 'hi there')}
   stages {
     stage("Checking available images") {
       steps {
@@ -21,4 +22,5 @@ pipeline {
       echo bat(returnStdout: true, script: 'docker ps')
     }
   }
+}
 }
