@@ -17,7 +17,7 @@ pipeline {
         echo "Finalizing..."
       }
     }
-    stage("Checking containers") {
+    stage("Checking available images") {
       steps {
         echo bat(returnStdout: true, script: 'docker ps -a')
 
@@ -26,6 +26,11 @@ pipeline {
     stage("Starting linux image") {
       steps {
         echo bat(returnStdout: true, script: 'docker start bf1dca6e9a63')
+      }
+    }
+    stage("Check if container is running") {
+      steps {
+        echo bat(returnStdout: true, script: 'docker ps')
       }
     }
   }
