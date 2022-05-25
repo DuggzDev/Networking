@@ -18,8 +18,8 @@ pipeline{
                 }
        }
        stage("Dockerfile"){
-       steps{
-       dockerfile {
+         steps{
+            dockerfile {
                filename 'Dockerfile.build'
                dir 'build'
                label 'my-defined-label'
