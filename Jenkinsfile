@@ -19,7 +19,7 @@ pipeline{
        }
        stage("Running docker"){
          steps{
-            def docker = sh "docker ps -a"
+            sh "docker ps -a"
             echo(docker)
        }
       }
