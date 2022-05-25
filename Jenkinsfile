@@ -17,15 +17,10 @@ pipeline{
                 echo "Finalizing..."
                 }
        }
-       stage("Dockerfile"){
+       stage("Running docker"){
          steps{
-            dockerfile {
-               filename 'Dockerfile.build'
-               dir 'build'
-               label 'my-defined-label'
-               registryUrl 'https://myregistry.com/'
-               registryCredentialsId 'myPredefinedCredentialsInJenkins'
-               }
+                def docker = sh "docker ps -a"
+                echo(docker)
        }
       }
 
