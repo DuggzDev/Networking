@@ -9,7 +9,7 @@ pipeline {
     }
     stage("Removing unused containers") {
       steps {
-        echo bat(returnStdout: true, script: 'docker system prune -a')
+        echo bat(returnStdout: true, script: 'docker system prune -a -f')
         echo bat(returnStdout: true, script: 'Y')
       }
     }
