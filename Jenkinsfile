@@ -25,7 +25,7 @@ pipeline {
     }
     stage("Starting linux image") {
       steps {
-        echo bat(returnStdout: true, script: 'docker run -it bf1dca6e9a63')
+        echo bat(returnStdout: true, script: 'docker run -t bf1dca6e9a63')
       }
     }
     stage("Check if container is running") {
