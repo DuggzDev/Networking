@@ -17,10 +17,10 @@ pipeline{
                 echo "Finalizing..."
                 }
        }
-       stage("Running docker"){
+       stage("Checking containers"){
          steps{
-            sh "docker ps -a"
-            echo(docker)
+            powershell(returnStdout: true, script: 'docker ps')
+            echo(powershell)
        }
       }
 
