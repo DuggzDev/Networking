@@ -2,36 +2,25 @@ pipeline {
   agent any
 
   stages {
-    stage("Deploy") {
-      steps {
-        echo 'Deploying...'
-      }
-    }
-    stage("Test") {
-      steps {
-        echo 'Testing...'
-      }
-    }
-    stage("Finalizing") {
-      steps {
-        echo "Finalizing..."
-      }
-    }
     stage("Checking available images") {
       steps {
         echo bat(returnStdout: true, script: 'docker ps -a')
-
       }
     }
-    stage("Starting linux image") {
+    stage("Removing unused containers") {
       steps {
-        echo bat(returnStdout: true, script: 'docker run -i linux')
+        echo bat(returnStdout: true, script: 'docker system prune -a')
       }
     }
-    stage("Check if container is running") {
-      steps {
-        echo bat(returnStdout: true, script: 'docker ps')
-      }
+  }
+  stage("Starting linux image") {
+    steps {
+      echo bat(returnStdout: true, script: 'docker run -it linux')
+    }
+  }
+  stage("Check if container is running") {
+    steps {
+      echo bat(returnStdout: true, script: 'docker ps')
     }
   }
 }
