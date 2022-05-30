@@ -7,12 +7,12 @@ pipeline {
         echo bat(returnStdout: true, script: 'docker ps -a')
       }
     }
-    stage("Removing unused containers") {
-      steps {
-        echo bat(returnStdout: true, script: 'docker system prune -a -f')
-        echo bat(returnStdout: true, script: 'Y')
-      }
-    }
+//     stage("Removing unused containers") {
+//       steps {
+//         echo bat(returnStdout: true, script: 'docker system prune -a -f')
+//
+//       }
+//     }
     stage("Starting linux image") {
       steps {
         echo bat(returnStdout: true, script: 'docker run -it linux')
