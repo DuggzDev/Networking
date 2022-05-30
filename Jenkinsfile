@@ -1,10 +1,12 @@
+def IMAGE_ID
+
 pipeline {
   agent any
 
   stages {
     stage("Checking available images") {
       steps {
-        echo bat(returnStdout: true, script: 'docker ps -a')
+        echo bat(returnStdout: true, script: 'docker images')
       }
     }
 //     stage("Removing unused containers") {
@@ -18,9 +20,9 @@ pipeline {
         echo bat(returnStdout: true, script: 'docker build .')
       }
     }
-    stage("Check if container is running") {
+    stage("Running container from image") {
       steps {
-        echo bat(returnStdout: true, script: 'docker ps')
+        echo bat(returnStdout: true, script: 'docker run -it 41efda415944')
       }
     }
   }
