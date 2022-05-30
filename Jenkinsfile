@@ -23,6 +23,5 @@ pipeline {
         echo bat(returnStdout: true, script: 'docker ps')
       }
     }
-    stage("Checking")
   }
 }
